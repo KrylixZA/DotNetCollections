@@ -5,7 +5,7 @@ using DotNetCollections.Models.Events;
 namespace DotNetCollections;
 
 [MemoryDiagnoser]
-[Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.Method)]
+[Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.Declared)]
 [RankColumn]
 public class PlayerEventProcessorBenchmarks
 {
@@ -25,7 +25,7 @@ public class PlayerEventProcessorBenchmarks
   }
 
   [Benchmark]
-  public void ListPlayerBufferProcessorHandleEvents()
+  public void HandlePlayerEventUsingLists()
   {
     foreach(var regEvent in _regEvents)
     {
@@ -42,7 +42,7 @@ public class PlayerEventProcessorBenchmarks
   }
 
   [Benchmark]
-  public void QueuePlayerBufferProcessorHandleEvents()
+  public void HandlePlayerEventsUsingQueues()
   {
     foreach (var regEvent in _regEvents)
     {
@@ -56,5 +56,17 @@ public class PlayerEventProcessorBenchmarks
     {
       _queuePlayerBufferProcessor.ProcessGamePlayEvent(gamePlayEvent);
     }
+  }
+
+  [Benchmark]
+  public void GetPlayerBufferFromListsUsingTakeLast()
+  {
+    _listPlayerBufferProcessor.GetPlayerBuffer();
+  }
+
+  [Benchmark]
+  public void GetPlayerBufferFromQueuesUsingTake()
+  {
+    _queuePlayerBufferProcessor.GetPlayerBuffer();
   }
 }
