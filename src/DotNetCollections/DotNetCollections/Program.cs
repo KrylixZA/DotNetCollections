@@ -5,9 +5,9 @@ using Bogus;
 using DotNetCollections;
 using DotNetCollections.Models.Events;
 
-var regEvents = new Faker<RegistrationEvent>().Generate(10);
-var loginEvents = new Faker<LoginEvent>().Generate(50);
-var gamePlayEvents = new Faker<GamePlayEvent>().Generate(200);
+// var regEvents = new Faker<RegistrationEvent>().Generate(10);
+// var loginEvents = new Faker<LoginEvent>().Generate(50);
+// var gamePlayEvents = new Faker<GamePlayEvent>().Generate(200);
 
 // List processor
 //var listPlayerBufferProcessor = new ListPlayerBufferProcessor();
