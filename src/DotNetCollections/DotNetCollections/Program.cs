@@ -44,9 +44,3 @@ using DotNetCollections.Models.Events;
 //Console.WriteLine(JsonSerializer.Serialize(queueBuffer));
 
 BenchmarkRunner.Run<PlayerEventProcessorBenchmarks>();
-
-
-/* TODO: Write benchmark tests for the following scenario
-** 1. Use queue over list with takelast
-** 2. Use foreach and dequeue 
-*/
